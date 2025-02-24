@@ -2,4 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class Menu:
-    pass
+    def __init__(self, window):
+        pass
+    def run(self):
+        pass
