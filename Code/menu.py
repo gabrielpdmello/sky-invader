@@ -1,7 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import time
-
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
@@ -22,7 +20,9 @@ class Menu:
         sel_menu_option = 0
         pygame.mixer_music.load('./Assets/Sounds/264778__zagi2__aliens-feast-loop.wav')
         pygame.mixer_music.play(-1)
+        clock = pygame.time.Clock()
         while True:
+            clock.tick(60)
             for ent in self.entity_list:
                 self.window.blit(source = ent.surf, dest = ent.rect)
                 ent.move('x') # note: background speed is affected by everything else that must be executed in the same iteration
@@ -56,7 +56,6 @@ class Menu:
                             sel_menu_option = len(MENU_OPTION) - 1
                     if event.key == pygame.K_RETURN:
                         return MENU_OPTION[sel_menu_option]
-            time.sleep(0.03) # 30ms delay
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)

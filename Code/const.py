@@ -4,12 +4,17 @@ ENTITY_SPEED = {
     'Images/moon_and_sea_pixel_art_background/2': 0,
     'Images/moon_and_sea_pixel_art_background/3': 1,
     'Images/moon_and_sea_pixel_art_background/4': 0,
-    'Images/level1/1': 1,
-    'Images/level1/smoke1': 2,
-    'Images/level1/smoke2': 2,
-    'Images/level1/smoke3': 2,
-    'Images/level1/smoke4': 2,
+    'Images/level1/1': 2,
+    'Images/level1/smoke1': 3,
+    'Images/level1/smoke2': 3,
+    'Images/level1/smoke3': 3,
+    'Images/level1/smoke4': 3,
 }
+
+#L
+
+LEVEL_FONT_SIZE = 24
+LEVEL_FONT_COLOR = (255, 255, 255) # white
 
 #M
 MENU_TITLE_FONT_COLOR = (18, 206, 219) # light blue
