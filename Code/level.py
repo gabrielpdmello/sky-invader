@@ -3,7 +3,6 @@
 import time
 
 import pygame
-from pygame import Surface
 
 from Code.entity import Entity
 from Code.entityFactory import EntityFactory
@@ -15,6 +14,7 @@ class Level:
         self.name = name
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.entity_list.extend(EntityFactory.get_entity('Level1Prop'))
 
     def run(self, ):
         while True:
@@ -22,3 +22,4 @@ class Level:
                 self.window.blit(source = ent.surf, dest = ent.rect)
                 ent.move('y')
             pygame.display.flip()
+            time.sleep(0.003)

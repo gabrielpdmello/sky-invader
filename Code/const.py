@@ -5,6 +5,10 @@ ENTITY_SPEED = {
     'Images/moon_and_sea_pixel_art_background/3': 1,
     'Images/moon_and_sea_pixel_art_background/4': 0,
     'Images/level1/1': 1,
+    'Images/level1/smoke1': 2,
+    'Images/level1/smoke2': 2,
+    'Images/level1/smoke3': 2,
+    'Images/level1/smoke4': 2,
 }
 
 #M

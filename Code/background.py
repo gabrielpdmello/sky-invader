@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from abc import ABC
 
 from Code.const import ENTITY_SPEED
 from Code.entity import Entity
@@ -10,7 +9,7 @@ class Background(Entity):
         super().__init__(name, position)
 
     def move(self, axis):
-        if axis == 'x': # menu background only
+        if axis == 'x':
             self.rect.centerx -= ENTITY_SPEED[self.name]
             if self.rect.right <= 0:
                 self.rect.left = self.width - 5  # -5 to remove gap
