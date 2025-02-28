@@ -28,7 +28,7 @@ class Menu:
                 ent.move('x') # note: background speed is affected by everything else that must be executed in the same iteration
 
             self.menu_text(MENU_TITLE_FONT_SIZE, 'Sky', MENU_TITLE_FONT_COLOR, ((WIN_WIDTH / 2), 60))
-            self.menu_text(MENU_TITLE_FONT_SIZE, 'Invader', MENU_TITLE_FONT_COLOR, ((WIN_WIDTH / 2), 110))
+            self.menu_text(MENU_TITLE_FONT_SIZE, 'Invader', MENU_TITLE_FONT_COLOR, ((WIN_WIDTH / 2), 130))
 
             for i in range(len(MENU_OPTION)):
                 if i == sel_menu_option:

@@ -16,7 +16,5 @@ class EntityFactory:
                     list_bg.append(Background(f'Images/moon_and_sea_pixel_art_background/{i + 1}', (1065, 0)))
                 return list_bg
             case 'Level1Bg':
-                list_bg = []
-                list_bg.append(Background(f'Images/level1/1', (0, 0)))
-                list_bg.append(Background(f'Images/level1/1', (0, -WIN_HEIGHT)))
+                list_bg = [Background(f'Images/level1/1', (0, 0)), Background(f'Images/level1/1', (0, -WIN_HEIGHT))]
                 return list_bg
