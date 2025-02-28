@@ -13,7 +13,7 @@ class Background(Entity):
         if axis == 'x':
             self.rect.centerx -= ENTITY_SPEED[self.name]
             if self.rect.right <= 0:
-                self.rect.left = WIN_WIDTH
+                self.rect.left = 1062
         elif axis =='y':
             self.rect.centery += ENTITY_SPEED[self.name]
             if self.rect.top >= WIN_HEIGHT:

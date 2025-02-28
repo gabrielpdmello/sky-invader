@@ -33,9 +33,9 @@ class Menu:
             for i in range(len(MENU_OPTION)):
                 if i == sel_menu_option:
                     self.menu_text(MENU_OPTION_FONT_SIZE, MENU_OPTION[i], MENU_OPTION_FONT_COLOR_SELECTED,
-                                   ((WIN_WIDTH / 2), 180 + i * 40))
+                                   ((WIN_WIDTH / 2), 240 + i * 60))
                 else:
-                    self.menu_text(MENU_OPTION_FONT_SIZE, MENU_OPTION[i], MENU_OPTION_FONT_COLOR, ((WIN_WIDTH / 2), 180 + i * 40))
+                    self.menu_text(MENU_OPTION_FONT_SIZE, MENU_OPTION[i], MENU_OPTION_FONT_COLOR, ((WIN_WIDTH / 2), 240 + i * 60))
             pygame.display.flip()
 
             # Check for all events
