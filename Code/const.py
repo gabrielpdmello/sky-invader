@@ -1,15 +1,24 @@
 #E
+import pygame
+
 ENTITY_SPEED = {
-    'Images/moon_and_sea_pixel_art_background/1': 0,
-    'Images/moon_and_sea_pixel_art_background/2': 0,
-    'Images/moon_and_sea_pixel_art_background/3': 1,
-    'Images/moon_and_sea_pixel_art_background/4': 0,
-    'Images/level1/1': 2,
-    'Images/level1/smoke1': 3,
-    'Images/level1/smoke2': 3,
-    'Images/level1/smoke3': 3,
-    'Images/level1/smoke4': 3,
+    'moon_and_sea_pixel_art_background/1': 0,
+    'moon_and_sea_pixel_art_background/2': 0,
+    'moon_and_sea_pixel_art_background/3': 1,
+    'moon_and_sea_pixel_art_background/4': 0,
+    'level1/1': 2,
+    'level1/smoke1': 3,
+    'level1/smoke2': 3,
+    'level1/smoke3': 3,
+    'level1/smoke4': 3,
+    'Player/1B': 4,
+    'Enemies/enemy1': 4,
+    'Enemies/enemy2': 4,
+    'Enemies/enemy3': 4,
+    'Enemies/enemy4': 4,
 }
+
+EVENT_ENEMY = pygame.USEREVENT + 1
 
 #L
 
@@ -27,6 +36,9 @@ MENU_OPTION = (
     'SCORES',
     'EXIT'
 )
+
+# S
+SPAWN_RATE = 2000
 
 #W
 WIN_WIDTH = 450

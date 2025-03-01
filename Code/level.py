@@ -1,11 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import random
+
 import pygame
 from pygame import Surface, Rect
 from pygame.examples.grid import WINDOW_HEIGHT
 from pygame.font import Font
 
-from Code.const import LEVEL_FONT_SIZE, LEVEL_FONT_COLOR, WIN_WIDTH, WIN_HEIGHT
+from Code.const import LEVEL_FONT_SIZE, LEVEL_FONT_COLOR, WIN_WIDTH, WIN_HEIGHT, EVENT_ENEMY, SPAWN_RATE
 from Code.entity import Entity
 from Code.entityFactory import EntityFactory
 
@@ -17,7 +19,9 @@ class Level:
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
         self.entity_list.extend(EntityFactory.get_entity('Level1Prop'))
+        self.entity_list.append(EntityFactory.get_entity('Player'))
         self.timeout = 20000
+        pygame.time.set_timer(EVENT_ENEMY, SPAWN_RATE)
 
     def run(self, ):
         pygame.mixer_music.load(f'./Assets/Sounds/littlerobotsoundfactory__loop_max_power(modified).wav')
@@ -32,6 +36,9 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()  # Close
                     quit()  # end pygame
+                if event.type == EVENT_ENEMY:
+                    choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
 
             self.level_text(LEVEL_FONT_SIZE, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', LEVEL_FONT_COLOR, (10, 5))
             self.level_text(LEVEL_FONT_SIZE, f'FPS: {clock.get_fps() :.0f}', LEVEL_FONT_COLOR, ((WIN_WIDTH - 70), 5))

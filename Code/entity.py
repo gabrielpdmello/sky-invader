@@ -6,7 +6,7 @@ import pygame
 class Entity(ABC):
     def __init__(self, name: str, position: tuple):
         self.name = name
-        self.surf = pygame.image.load('./Assets/' + name + '.png').convert_alpha()
+        self.surf = pygame.image.load('./Assets/Images/' + name + '.png').convert_alpha()
         self.width = self.surf.get_width()
         self.height = self.surf.get_height()
         self.rect = self.surf.get_rect(left=position[0], top=position[1])

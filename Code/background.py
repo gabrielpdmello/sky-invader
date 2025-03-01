@@ -8,7 +8,7 @@ class Background(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
 
-    def move(self, axis):
+    def move(self, axis: str):
         if axis == 'x':
             self.rect.centerx -= ENTITY_SPEED[self.name]
             if self.rect.right <= 0:
