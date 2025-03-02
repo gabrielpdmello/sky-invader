@@ -16,6 +16,9 @@ ENTITY_SPEED = {
     'Enemies/enemy2': 4,
     'Enemies/enemy3': 4,
     'Enemies/enemy4': 4,
+    'Shots/enemy_shot_normal': 6,
+    'Shots/enemy_shot_special': 6,
+    'Shots/player_shot': 10,
 }
 
 ENTITY_HEALTH = {
@@ -33,9 +36,20 @@ ENTITY_HEALTH = {
     'Enemies/enemy2': 100,
     'Enemies/enemy3': 100,
     'Enemies/enemy4': 100,
+    'Shots/enemy_shot_normal': 1,
+    'Shots/enemy_shot_special': 1,
+    'Shots/player_shot': 1,
 }
 
 EVENT_ENEMY = pygame.USEREVENT + 1
+
+ENTITY_SHOT_DELAY = {
+    'Player/1B': 10,
+    'Enemies/enemy1': 80,
+    'Enemies/enemy2': 80,
+    'Enemies/enemy3': 80,
+    'Enemies/enemy4': 80,
+}
 
 #L
 
@@ -55,7 +69,7 @@ MENU_OPTION = (
 )
 
 # S
-SPAWN_RATE = 2000
+SPAWN_RATE = 1000
 
 #W
 WIN_WIDTH = 450

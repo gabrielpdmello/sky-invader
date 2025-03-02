@@ -31,10 +31,10 @@ class EntityFactory:
             case 'Player':
                 return Player('Player/1B', ((WIN_WIDTH / 2 - 32), (WIN_HEIGHT - 100)))
             case 'Enemy1':
-                return Enemy('Enemies/enemy1', ((random.randint(0, WIN_WIDTH -40)), -100))
+                return Enemy('Enemies/enemy1', ((random.randint(0, WIN_WIDTH -80)), -400))
             case 'Enemy2':
-                return Enemy('Enemies/enemy2', ((random.randint(0, WIN_WIDTH -40)), -100))
+                return Enemy('Enemies/enemy2', ((random.randint(0, WIN_WIDTH -80)), -400))
             case 'Enemy3':
-                return Enemy('Enemies/enemy3', ((random.randint(0, WIN_WIDTH -40)), -100))
+                return Enemy('Enemies/enemy3', ((random.randint(0, WIN_WIDTH -80)), -400))
             case 'Enemy4':
-                return Enemy('Enemies/enemy4', ((random.randint(0, WIN_WIDTH -40)), -100))
+                return Enemy('Enemies/enemy4', ((random.randint(0, WIN_WIDTH -80)), -400))

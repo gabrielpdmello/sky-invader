@@ -6,10 +6,13 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from Code.const import LEVEL_FONT_SIZE, LEVEL_FONT_COLOR, WIN_WIDTH, WIN_HEIGHT, EVENT_ENEMY, SPAWN_RATE
+from Code.const import LEVEL_FONT_SIZE, LEVEL_FONT_COLOR, WIN_WIDTH, WIN_HEIGHT, EVENT_ENEMY, SPAWN_RATE, \
+    ENTITY_SHOT_DELAY
+from Code.enemy import Enemy
 from Code.entity import Entity
 from Code.entityFactory import EntityFactory
 from Code.entityMediator import EntityMediator
+from Code.player import Player
 
 
 class Level:
@@ -32,6 +35,13 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source = ent.surf, dest = ent.rect)
                 ent.move('y')
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    ent.shot_delay -= 1
+                    if shoot is not None and ent.shot_delay <= 0:
+                        ent.shot_delay = ENTITY_SHOT_DELAY[ent.name]
+                        self.entity_list.append(shoot)
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()  # Close
