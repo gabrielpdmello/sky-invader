@@ -12,6 +12,3 @@ class Enemy(Entity):
 
     def move(self, axis = False):
         self.rect.centery += ENTITY_SPEED[self.name]
-        if self.rect.top > WIN_HEIGHT + self.height:
-            self.rect.top = -self.height
-            self.rect.left = random.randint(0, WIN_WIDTH -40)

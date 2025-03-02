@@ -4,12 +4,12 @@ import random
 
 import pygame
 from pygame import Surface, Rect
-from pygame.examples.grid import WINDOW_HEIGHT
 from pygame.font import Font
 
 from Code.const import LEVEL_FONT_SIZE, LEVEL_FONT_COLOR, WIN_WIDTH, WIN_HEIGHT, EVENT_ENEMY, SPAWN_RATE
 from Code.entity import Entity
 from Code.entityFactory import EntityFactory
+from Code.entityMediator import EntityMediator
 
 
 class Level:
@@ -44,6 +44,9 @@ class Level:
             self.level_text(LEVEL_FONT_SIZE, f'FPS: {clock.get_fps() :.0f}', LEVEL_FONT_COLOR, ((WIN_WIDTH - 70), 5))
             self.level_text(LEVEL_FONT_SIZE, f'Entities: {len(self.entity_list)}', LEVEL_FONT_COLOR, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
+            # Collisions
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)

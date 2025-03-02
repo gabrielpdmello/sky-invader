@@ -11,11 +11,28 @@ ENTITY_SPEED = {
     'level1/smoke2': 3,
     'level1/smoke3': 3,
     'level1/smoke4': 3,
-    'Player/1B': 4,
+    'Player/1B': 5,
     'Enemies/enemy1': 4,
     'Enemies/enemy2': 4,
     'Enemies/enemy3': 4,
     'Enemies/enemy4': 4,
+}
+
+ENTITY_HEALTH = {
+    'moon_and_sea_pixel_art_background/1': 1,
+    'moon_and_sea_pixel_art_background/2': 1,
+    'moon_and_sea_pixel_art_background/3': 1,
+    'moon_and_sea_pixel_art_background/4': 1,
+    'level1/1': 1,
+    'level1/smoke1': 1,
+    'level1/smoke2': 1,
+    'level1/smoke3': 1,
+    'level1/smoke4': 1,
+    'Player/1B': 100,
+    'Enemies/enemy1': 100,
+    'Enemies/enemy2': 100,
+    'Enemies/enemy3': 100,
+    'Enemies/enemy4': 100,
 }
 
 EVENT_ENEMY = pygame.USEREVENT + 1
