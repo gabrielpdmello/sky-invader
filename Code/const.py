@@ -1,6 +1,26 @@
 #E
 import pygame
 
+ENTITY_DAMAGE = {
+    'moon_and_sea_pixel_art_background/1': 0,
+    'moon_and_sea_pixel_art_background/2': 0,
+    'moon_and_sea_pixel_art_background/3': 0,
+    'moon_and_sea_pixel_art_background/4': 0,
+    'level1/1': 0,
+    'level1/smoke1': 0,
+    'level1/smoke2': 0,
+    'level1/smoke3': 0,
+    'level1/smoke4': 0,
+    'Player/1B': 1,
+    'Enemies/enemy1': 20,
+    'Enemies/enemy2': 20,
+    'Enemies/enemy3': 20,
+    'Enemies/enemy4': 20,
+    'Shots/enemy_shot_normal': 20,
+    'Shots/enemy_shot_special': 20,
+    'Shots/player_shot': 20,
+}
+
 ENTITY_SPEED = {
     'moon_and_sea_pixel_art_background/1': 0,
     'moon_and_sea_pixel_art_background/2': 0,
@@ -32,13 +52,33 @@ ENTITY_HEALTH = {
     'level1/smoke3': 1,
     'level1/smoke4': 1,
     'Player/1B': 100,
-    'Enemies/enemy1': 100,
-    'Enemies/enemy2': 100,
-    'Enemies/enemy3': 100,
-    'Enemies/enemy4': 100,
+    'Enemies/enemy1': 60,
+    'Enemies/enemy2': 60,
+    'Enemies/enemy3': 60,
+    'Enemies/enemy4': 60,
     'Shots/enemy_shot_normal': 1,
     'Shots/enemy_shot_special': 1,
     'Shots/player_shot': 1,
+}
+
+ENTITY_SCORE = {
+    'moon_and_sea_pixel_art_background/1': 0,
+    'moon_and_sea_pixel_art_background/2': 0,
+    'moon_and_sea_pixel_art_background/3': 0,
+    'moon_and_sea_pixel_art_background/4': 0,
+    'level1/1': 0,
+    'level1/smoke1': 0,
+    'level1/smoke2': 0,
+    'level1/smoke3': 0,
+    'level1/smoke4': 0,
+    'Player/1B': 0,
+    'Enemies/enemy1': 100,
+    'Enemies/enemy2': 100,
+    'Enemies/enemy3': 200,
+    'Enemies/enemy4': 500,
+    'Shots/enemy_shot_normal': 0,
+    'Shots/enemy_shot_special': 0,
+    'Shots/player_shot': 0,
 }
 
 EVENT_ENEMY = pygame.USEREVENT + 1

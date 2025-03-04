@@ -41,6 +41,11 @@ class Level:
                     if shoot is not None and ent.shot_delay <= 0:
                         ent.shot_delay = ENTITY_SHOT_DELAY[ent.name]
                         self.entity_list.append(shoot)
+                if ent.name == "Player/1B":
+                    self.level_text(LEVEL_FONT_SIZE, f'Health: {ent.health}',
+                                    LEVEL_FONT_COLOR, (10, (WIN_HEIGHT - 20)))
+                    self.level_text(LEVEL_FONT_SIZE, f'Score: {ent.score}',
+                                    LEVEL_FONT_COLOR, ((WIN_WIDTH - 10), (WIN_HEIGHT - 20)), True)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -50,16 +55,18 @@ class Level:
                     choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
 
-            self.level_text(LEVEL_FONT_SIZE, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', LEVEL_FONT_COLOR, (10, 5))
             self.level_text(LEVEL_FONT_SIZE, f'FPS: {clock.get_fps() :.0f}', LEVEL_FONT_COLOR, ((WIN_WIDTH - 70), 5))
-            self.level_text(LEVEL_FONT_SIZE, f'Entities: {len(self.entity_list)}', LEVEL_FONT_COLOR, (10, WIN_HEIGHT - 20))
+            self.level_text(LEVEL_FONT_SIZE, f'Entities: {len(self.entity_list)}', LEVEL_FONT_COLOR, (10, 5))
             pygame.display.flip()
             # Collisions
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
 
-    def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
+    def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple, sub_width = False):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
-        text_rect: Rect = text_surf.get_rect(left=text_pos[0], top=text_pos[1])
+        if sub_width:
+            text_rect: Rect = text_surf.get_rect(left=(text_pos[0] - text_surf.get_width()), top=text_pos[1])
+        else:
+            text_rect: Rect = text_surf.get_rect(left=(text_pos[0]), top=text_pos[1])
         self.window.blit(source=text_surf, dest=text_rect)
