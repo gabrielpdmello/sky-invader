@@ -26,9 +26,9 @@ class Level:
         self.timeout = 20000
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_RATE)
 
-    def run(self, ):
-        pygame.mixer_music.load(f'./Assets/Sounds/littlerobotsoundfactory__loop_max_power(modified).wav')
-        pygame.mixer_music.play(-1)
+    def run(self, window):
+        pygame.mixer.music.load(f'./Assets/Sounds/littlerobotsoundfactory__loop_max_power(modified).wav')
+        pygame.mixer.music.play(-1)
         clock = pygame.time.Clock()
         while True:
             clock.tick(60)
@@ -41,6 +41,10 @@ class Level:
                     if shoot is not None and ent.shot_delay <= 0:
                         ent.shot_delay = ENTITY_SHOT_DELAY[ent.name]
                         self.entity_list.append(shoot)
+                        if ent.name == 'Player/1B':
+                            shot_sound = pygame.mixer.Sound(f'./Assets/Sounds/676322__rubberduck9999__retro-laser-shot.wav')
+                            pygame.mixer.Sound.play(shot_sound)
+
                 if ent.name == "Player/1B":
                     self.level_text(LEVEL_FONT_SIZE, f'Health: {ent.health}',
                                     LEVEL_FONT_COLOR, (10, (WIN_HEIGHT - 20)))
@@ -54,6 +58,14 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
+
+            found_player = False
+            for ent in self.entity_list:
+                if isinstance(ent, Player):
+                    found_player = True
+
+            if not found_player:
+                return False
 
             self.level_text(LEVEL_FONT_SIZE, f'FPS: {clock.get_fps() :.0f}', LEVEL_FONT_COLOR, ((WIN_WIDTH - 70), 5))
             self.level_text(LEVEL_FONT_SIZE, f'Entities: {len(self.entity_list)}', LEVEL_FONT_COLOR, (10, 5))

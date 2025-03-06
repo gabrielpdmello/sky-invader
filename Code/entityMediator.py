@@ -52,8 +52,6 @@ class EntityMediator:
 
                 if ent2.health <= 0:
                     ent2.destroyed_by = ent1.name
-                # ent1.last_dmg = ent2.name
-                # ent2.last_dmg = ent1.name
 
     @staticmethod
     def verify_health(entity_list: list[Entity]):

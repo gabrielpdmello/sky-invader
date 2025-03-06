@@ -16,8 +16,8 @@ class EntityFactory:
             case 'MenuBg':
                 list_bg = []
                 for i in range(4):
-                    list_bg.append(Background(f'moon_and_sea_pixel_art_background/{i + 1}', (0, 0)))
-                    list_bg.append(Background(f'moon_and_sea_pixel_art_background/{i + 1}', (1065, 0)))
+                    list_bg.append(Background(f'Menu/{i + 1}', (0, 0)))
+                    list_bg.append(Background(f'Menu/{i + 1}', (1065, 0)))
                 return list_bg
             case 'Level1Bg':
                 list_bg = [Background(f'level1/1', (0, 0)),

@@ -2,10 +2,10 @@
 import pygame
 
 ENTITY_DAMAGE = {
-    'moon_and_sea_pixel_art_background/1': 0,
-    'moon_and_sea_pixel_art_background/2': 0,
-    'moon_and_sea_pixel_art_background/3': 0,
-    'moon_and_sea_pixel_art_background/4': 0,
+    'Menu/1': 0,
+    'Menu/2': 0,
+    'Menu/3': 0,
+    'Menu/4': 0,
     'level1/1': 0,
     'level1/smoke1': 0,
     'level1/smoke2': 0,
@@ -22,10 +22,10 @@ ENTITY_DAMAGE = {
 }
 
 ENTITY_SPEED = {
-    'moon_and_sea_pixel_art_background/1': 0,
-    'moon_and_sea_pixel_art_background/2': 0,
-    'moon_and_sea_pixel_art_background/3': 1,
-    'moon_and_sea_pixel_art_background/4': 0,
+    'Menu/1': 0,
+    'Menu/2': 0,
+    'Menu/3': 1,
+    'Menu/4': 0,
     'level1/1': 2,
     'level1/smoke1': 3,
     'level1/smoke2': 3,
@@ -42,10 +42,10 @@ ENTITY_SPEED = {
 }
 
 ENTITY_HEALTH = {
-    'moon_and_sea_pixel_art_background/1': 1,
-    'moon_and_sea_pixel_art_background/2': 1,
-    'moon_and_sea_pixel_art_background/3': 1,
-    'moon_and_sea_pixel_art_background/4': 1,
+    'Menu/1': 1,
+    'Menu/2': 1,
+    'Menu/3': 1,
+    'Menu/4': 1,
     'level1/1': 1,
     'level1/smoke1': 1,
     'level1/smoke2': 1,
@@ -62,10 +62,10 @@ ENTITY_HEALTH = {
 }
 
 ENTITY_SCORE = {
-    'moon_and_sea_pixel_art_background/1': 0,
-    'moon_and_sea_pixel_art_background/2': 0,
-    'moon_and_sea_pixel_art_background/3': 0,
-    'moon_and_sea_pixel_art_background/4': 0,
+    'Menu/1': 0,
+    'Menu/2': 0,
+    'Menu/3': 0,
+    'Menu/4': 0,
     'level1/1': 0,
     'level1/smoke1': 0,
     'level1/smoke2': 0,
