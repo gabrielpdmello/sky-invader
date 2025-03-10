@@ -20,8 +20,8 @@ class Game:
 
             if menu_return == MENU_OPTION[0]: # play
                 level = Level(self.window, 'Level1')
-                level_return = level.run(self.window) # level_return is used to change
-                # levels. Since there's only 1 level for now, this won't be used
+                level_return = level.run()  # level_return is used to change levels. Since there's only 1 level for now,
+                # this won't be used
 
             elif menu_return == MENU_OPTION[1]:  # score
                 pass

@@ -26,14 +26,14 @@ class Level:
         self.timeout = 20000
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_RATE)
 
-    def run(self, window):
+    def run(self):
         pygame.mixer.music.load(f'./Assets/Sounds/littlerobotsoundfactory__loop_max_power(modified).wav')
         pygame.mixer.music.play(-1)
         clock = pygame.time.Clock()
         while True:
             clock.tick(60)
             for ent in self.entity_list:
-                self.window.blit(source = ent.surf, dest = ent.rect)
+                self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move('y')
                 if isinstance(ent, (Player, Enemy)):
                     shoot = ent.shoot()
@@ -42,7 +42,8 @@ class Level:
                         ent.shot_delay = ENTITY_SHOT_DELAY[ent.name]
                         self.entity_list.append(shoot)
                         if ent.name == 'Player/1B':
-                            shot_sound = pygame.mixer.Sound(f'./Assets/Sounds/676322__rubberduck9999__retro-laser-shot.wav')
+                            shot_sound = pygame.mixer.Sound(
+                                f'./Assets/Sounds/676322__rubberduck9999__retro-laser-shot.wav')
                             pygame.mixer.Sound.play(shot_sound)
 
                 if ent.name == "Player/1B":
@@ -63,13 +64,16 @@ class Level:
             for ent in self.entity_list:
                 if isinstance(ent, Player):
                     found_player = True
+                    ent.collision_delay -= 1
 
+            # finish level loop if player dies
             if not found_player:
                 return False
 
             self.level_text(LEVEL_FONT_SIZE, f'FPS: {clock.get_fps() :.0f}', LEVEL_FONT_COLOR, ((WIN_WIDTH - 70), 5))
             self.level_text(LEVEL_FONT_SIZE, f'Entities: {len(self.entity_list)}', LEVEL_FONT_COLOR, (10, 5))
             pygame.display.flip()
+
             # Collisions
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
@@ -77,6 +81,7 @@ class Level:
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple, sub_width = False):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
+        # if true, subtracts text width from position to avoid text outside of window
         if sub_width:
             text_rect: Rect = text_surf.get_rect(left=(text_pos[0] - text_surf.get_width()), top=text_pos[1])
         else:

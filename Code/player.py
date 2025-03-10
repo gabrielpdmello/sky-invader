@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import pygame.key
 
-from Code.const import WIN_HEIGHT, ENTITY_SPEED, WIN_WIDTH, ENTITY_SHOT_DELAY
+from Code.const import WIN_HEIGHT, ENTITY_SPEED, WIN_WIDTH, ENTITY_SHOT_DELAY, COLLISION_DELAY
 from Code.entity import Entity
 from Code.playerShot import PlayerShot
 
@@ -11,6 +11,7 @@ class Player(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
         self.shot_delay = ENTITY_SHOT_DELAY[self.name]
+        self.collision_delay = COLLISION_DELAY
 
     def update(self, ):
         pass
@@ -25,7 +26,6 @@ class Player(Entity):
             self.rect.centerx -= ENTITY_SPEED[self.name]
         if pressed_key[pygame.K_RIGHT] and self.rect.left < WIN_WIDTH - 62:
             self.rect.centerx += ENTITY_SPEED[self.name]
-        pass
 
     def shoot(self):
         # the shot delay must be implemented inside the main game loop, this way it's possible to limit the shot rate while not introducing any delay to the first shot

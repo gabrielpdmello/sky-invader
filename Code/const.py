@@ -1,5 +1,10 @@
-#E
 import pygame
+
+#C
+
+COLLISION_DELAY = 90 # 90 / 60fps = 1,5s
+
+#E
 
 ENTITY_DAMAGE = {
     'Menu/1': 0,
@@ -11,7 +16,7 @@ ENTITY_DAMAGE = {
     'level1/smoke2': 0,
     'level1/smoke3': 0,
     'level1/smoke4': 0,
-    'Player/1B': 1,
+    'Player/1B': 1, # player must cause damage to enemy shot
     'Enemies/enemy1': 20,
     'Enemies/enemy2': 20,
     'Enemies/enemy3': 20,
@@ -52,8 +57,8 @@ ENTITY_HEALTH = {
     'level1/smoke3': 1,
     'level1/smoke4': 1,
     'Player/1B': 100,
-    'Enemies/enemy1': 60,
-    'Enemies/enemy2': 60,
+    'Enemies/enemy1': 40,
+    'Enemies/enemy2': 80,
     'Enemies/enemy3': 60,
     'Enemies/enemy4': 60,
     'Shots/enemy_shot_normal': 1,

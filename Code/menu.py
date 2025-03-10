@@ -25,7 +25,7 @@ class Menu:
             clock.tick(60)
             for ent in self.entity_list:
                 self.window.blit(source = ent.surf, dest = ent.rect)
-                ent.move('x') # note: background speed is affected by everything else that must be executed in the same iteration
+                ent.move('x')
 
             self.menu_text(MENU_TITLE_FONT_SIZE, 'Sky', MENU_TITLE_FONT_COLOR, ((WIN_WIDTH / 2), 60))
             self.menu_text(MENU_TITLE_FONT_SIZE, 'Invader', MENU_TITLE_FONT_COLOR, ((WIN_WIDTH / 2), 130))
