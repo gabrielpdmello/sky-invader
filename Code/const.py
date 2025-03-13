@@ -17,6 +17,7 @@ ENTITY_DAMAGE = {
     'level1/smoke3': 0,
     'level1/smoke4': 0,
     'Player/1B': 1, # player must cause damage to enemy shot
+    'HP': 0,
     'Enemies/enemy1': 20,
     'Enemies/enemy2': 20,
     'Enemies/enemy3': 20,
@@ -36,13 +37,13 @@ ENTITY_SPEED = {
     'level1/smoke2': 3,
     'level1/smoke3': 3,
     'level1/smoke4': 3,
-    'Player/1B': 5,
+    'Player/1B': 6,
+    'HP': 4,
     'Enemies/enemy1': 4,
-    'Enemies/enemy2': 4,
-    'Enemies/enemy3': 4,
-    'Enemies/enemy4': 4,
+    'Enemies/enemy2': 3,
+    'Enemies/enemy3': 8,
     'Shots/enemy_shot_normal': 6,
-    'Shots/enemy_shot_special': 6,
+    'Shots/enemy_shot_special': 12,
     'Shots/player_shot': 10,
 }
 
@@ -57,10 +58,10 @@ ENTITY_HEALTH = {
     'level1/smoke3': 1,
     'level1/smoke4': 1,
     'Player/1B': 100,
+    'HP': 1,
     'Enemies/enemy1': 40,
-    'Enemies/enemy2': 80,
+    'Enemies/enemy2': 100,
     'Enemies/enemy3': 60,
-    'Enemies/enemy4': 60,
     'Shots/enemy_shot_normal': 1,
     'Shots/enemy_shot_special': 1,
     'Shots/player_shot': 1,
@@ -77,10 +78,10 @@ ENTITY_SCORE = {
     'level1/smoke3': 0,
     'level1/smoke4': 0,
     'Player/1B': 0,
+    'HP': 0,
     'Enemies/enemy1': 100,
-    'Enemies/enemy2': 100,
-    'Enemies/enemy3': 200,
-    'Enemies/enemy4': 500,
+    'Enemies/enemy2': 500,
+    'Enemies/enemy3': 1000,
     'Shots/enemy_shot_normal': 0,
     'Shots/enemy_shot_special': 0,
     'Shots/player_shot': 0,
@@ -91,10 +92,16 @@ EVENT_ENEMY = pygame.USEREVENT + 1
 ENTITY_SHOT_DELAY = {
     'Player/1B': 10,
     'Enemies/enemy1': 80,
-    'Enemies/enemy2': 80,
-    'Enemies/enemy3': 80,
-    'Enemies/enemy4': 80,
+    'Enemies/enemy2': 100,
+    'Enemies/enemy3': 40,
 }
+
+# F
+FPS = 60
+
+# H
+HP_COLOR = (0, 156, 0) # green
+HP_FONT_SIZE = 32
 
 #L
 
@@ -114,7 +121,7 @@ MENU_OPTION = (
 )
 
 # S
-SPAWN_RATE = 1000
+SPAWN_RATE = 1500
 
 #W
 WIN_WIDTH = 450

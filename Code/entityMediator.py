@@ -2,6 +2,7 @@ from Code.const import WIN_HEIGHT, COLLISION_DELAY
 from Code.enemy import Enemy
 from Code.enemyShot import EnemyShot
 from Code.entity import Entity
+from Code.hp import HP
 from Code.player import Player
 from Code.playerShot import PlayerShot
 
@@ -17,6 +18,9 @@ class EntityMediator:
             if ent.rect.centery < 0:
                 ent.health = 0
         if isinstance(ent, EnemyShot):
+            if ent.rect.centery > WIN_HEIGHT + ent.height:
+                ent.health = 0
+        if isinstance(ent, HP):
             if ent.rect.centery > WIN_HEIGHT + ent.height:
                 ent.health = 0
 
@@ -65,6 +69,10 @@ class EntityMediator:
             EntityMediator.__verify_collision_aircraft(ent1, ent2)
         elif isinstance(ent2, Player) and isinstance(ent1, Enemy):
             EntityMediator.__verify_collision_aircraft(ent2, ent1)
+        elif isinstance(ent1, Player) and isinstance(ent2, HP):
+            EntityMediator.__verify_collision_health(ent2, ent1)
+        elif isinstance(ent2, HP) and isinstance(ent1, Player):
+            EntityMediator.__verify_collision_health(ent2, ent1)
 
     # verify collision between shot and aircraft
     @staticmethod
@@ -78,6 +86,12 @@ class EntityMediator:
         if EntityMediator.__detect_collision(player, enemy) and player.collision_delay <= 0:
             EntityMediator.__apply_damage(player, enemy)
             player.collision_delay = COLLISION_DELAY
+
+    @staticmethod
+    def __verify_collision_health(health, player):
+        if EntityMediator.__detect_collision(health, player):
+            EntityMediator.__apply_damage(health, player)
+            player.health = 100
 
     # removes entities with no health left
     @staticmethod

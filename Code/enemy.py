@@ -8,13 +8,17 @@ from Code.entity import Entity
 
 
 class Enemy(Entity):
-    def __init__(self, name: str, position: tuple):
+    def __init__(self, name: str, position: tuple, special = False):
         super().__init__(name, position)
+        self.special = special
         self.shot_delay = ENTITY_SHOT_DELAY[self.name]
 
     def move(self, axis = False):
         self.rect.centery += ENTITY_SPEED[self.name]
 
     def shoot(self):
-        return EnemyShot(name=f'Shots/enemy_shot_normal', position=(self.rect.centerx, self.rect.centery))
+        if self.special:
+            return EnemyShot(name=f'Shots/enemy_shot_special', position=(self.rect.centerx, self.rect.centery))
+        else:
+            return EnemyShot(name=f'Shots/enemy_shot_normal', position=(self.rect.centerx, self.rect.centery))
 

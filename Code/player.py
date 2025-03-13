@@ -30,6 +30,6 @@ class Player(Entity):
     def shoot(self):
         # the shot delay must be implemented inside the main game loop, this way it's possible to limit the shot rate while not introducing any delay to the first shot
         pressed_key = pygame.key.get_pressed()
-        if pressed_key[pygame.K_LCTRL]:
+        if pressed_key[pygame.K_LCTRL] or pressed_key[pygame.K_SPACE]:
             return PlayerShot(name=f'Shots/player_shot', position = (self.rect.centerx, (self.rect.centery - self.height)))
 

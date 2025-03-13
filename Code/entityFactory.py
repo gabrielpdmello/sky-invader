@@ -5,6 +5,7 @@ import random
 from Code.background import Background
 from Code.const import WIN_WIDTH, WIN_HEIGHT
 from Code.enemy import Enemy
+from Code.hp import HP
 from Code.player import Player
 from Code.prop import Prop
 
@@ -30,11 +31,11 @@ class EntityFactory:
                 return list_prop
             case 'Player':
                 return Player('Player/1B', ((WIN_WIDTH / 2 - 32), (WIN_HEIGHT - 100)))
+            case 'HP':
+                return HP('HP', ((random.randint(0, WIN_WIDTH -80)), -400))
             case 'Enemy1':
                 return Enemy('Enemies/enemy1', ((random.randint(0, WIN_WIDTH -80)), -400))
             case 'Enemy2':
                 return Enemy('Enemies/enemy2', ((random.randint(0, WIN_WIDTH -80)), -400))
             case 'Enemy3':
-                return Enemy('Enemies/enemy3', ((random.randint(0, WIN_WIDTH -80)), -400))
-            case 'Enemy4':
-                return Enemy('Enemies/enemy4', ((random.randint(0, WIN_WIDTH -80)), -400))
+                return Enemy('Enemies/enemy3', ((random.randint(0, WIN_WIDTH -80)), -400), True)

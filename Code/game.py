@@ -12,7 +12,7 @@ class Game:
         pygame.init()
         self.window = pygame.display.set_mode(size=(WIN_WIDTH, WIN_HEIGHT))
 
-    def run(self):
+    def run(self, debug = False):
         while True:
             pygame.init()
             menu = Menu(self.window)
@@ -20,7 +20,11 @@ class Game:
 
             if menu_return == MENU_OPTION[0]: # play
                 level = Level(self.window, 'Level1')
-                level_return = level.run()  # level_return is used to change levels. Since there's only 1 level for now,
+                if debug:
+                    level_return = level.run(debug = True)
+                else:
+                    level_return = level.run()
+                # level_return is used to change levels. Since there's only 1 level for now,
                 # this won't be used
 
             elif menu_return == MENU_OPTION[1]:  # score
