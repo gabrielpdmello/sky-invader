@@ -1,10 +1,10 @@
 import pygame
 
-#C
+# C
 
 COLLISION_DELAY = 90 # 90 / 60fps = 1,5s
 
-#E
+# E
 
 ENTITY_DAMAGE = {
     'Menu/1': 0,
@@ -103,12 +103,12 @@ FPS = 60
 HP_COLOR = (0, 156, 0) # green
 HP_FONT_SIZE = 32
 
-#L
+# L
 
 LEVEL_FONT_SIZE = 24
 LEVEL_FONT_COLOR = (255, 255, 255) # white
 
-#M
+# M
 MENU_TITLE_FONT_COLOR = (18, 206, 219) # light blue
 MENU_TITLE_FONT_SIZE = 100
 MENU_OPTION_FONT_COLOR = (255, 255, 255) # white
@@ -123,7 +123,28 @@ MENU_OPTION = (
 # S
 SPAWN_RATE = 1500
 
-#W
+# W
 WIN_WIDTH = 450
 WIN_HEIGHT = 600
 
+# S
+SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
+             'EnterName': (WIN_WIDTH / 2, 80),
+             'Label': (WIN_WIDTH / 2, 90),
+             'Name': (WIN_WIDTH / 2, 110),
+             'Back': ((WIN_WIDTH / 2), (WIN_HEIGHT - 30)),
+             0: (WIN_WIDTH / 2, 110),
+             1: (WIN_WIDTH / 2, 130),
+             2: (WIN_WIDTH / 2, 150),
+             3: (WIN_WIDTH / 2, 170),
+             4: (WIN_WIDTH / 2, 190),
+             5: (WIN_WIDTH / 2, 210),
+             6: (WIN_WIDTH / 2, 230),
+             7: (WIN_WIDTH / 2, 250),
+             8: (WIN_WIDTH / 2, 270),
+             9: (WIN_WIDTH / 2, 290),
+             }
+
+SCORE_FONT_SIZE = 30
+SCORE_FONT_COLOR = (255, 255, 255) # white
+SCORE_BG_COLOR = (50, 50, 50) # dark grey

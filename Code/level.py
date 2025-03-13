@@ -13,6 +13,7 @@ from Code.entity import Entity
 from Code.entityFactory import EntityFactory
 from Code.entityMediator import EntityMediator
 from Code.player import Player
+from Code.score import Score
 
 
 class Level:
@@ -32,6 +33,7 @@ class Level:
     def run(self, debug = False):
         pygame.mixer.music.load(f'./Assets/Sounds/littlerobotsoundfactory__loop_max_power(modified).wav')
         pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(80)
         clock = pygame.time.Clock()
         while True:
             clock.tick(FPS)
@@ -94,10 +96,11 @@ class Level:
                 if isinstance(ent, Player):
                     found_player = True
                     ent.collision_delay -= 1
+                    player_score = ent.score
 
             # finish level loop if player dies
             if not found_player:
-                return False
+                return player_score
 
             self.level_text(LEVEL_FONT_SIZE, f'FPS: {clock.get_fps() :.0f}', LEVEL_FONT_COLOR, ((WIN_WIDTH - 70), 5))
             self.level_text(LEVEL_FONT_SIZE, f'Time: {self.timer / 1000:.1f}s', LEVEL_FONT_COLOR, (10, 5))
