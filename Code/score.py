@@ -6,8 +6,6 @@ from pygame.font import Font
 
 from Code.DBProxy import DBProxy
 from Code.const import SCORE_POS, SCORE_FONT_COLOR, SCORE_BG_COLOR
-from Code.entity import Entity
-from Code.entityFactory import EntityFactory
 
 
 class Score:
@@ -22,6 +20,7 @@ class Score:
         while True:
             self.window.fill(SCORE_BG_COLOR)
             self.score_text(48, 'GAME OVER', SCORE_FONT_COLOR, SCORE_POS['Title'])
+            self.score_text(20, f'YOUR SCORE: {player_score}', SCORE_FONT_COLOR, SCORE_POS['Score'])
             text = 'ENTER PLAYER NAME (4 CHARACTERS)'
             score = player_score
             self.score_text(20, text, SCORE_FONT_COLOR, SCORE_POS['EnterName'])
@@ -55,7 +54,7 @@ class Score:
         db_proxy.close()
 
         for player_score in list_score:
-            id_, name, score= player_score
+            id_, name, score = player_score
             self.score_text(20, f'{name}     {score:05d}', SCORE_FONT_COLOR,
                             SCORE_POS[list_score.index(player_score)])
         while True:

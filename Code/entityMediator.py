@@ -43,7 +43,6 @@ class EntityMediator:
                 ent1.rect.top <= ent2.rect.bottom):
             return True
 
-
     @staticmethod
     def __apply_damage(ent1, ent2):
         ent1.health -= ent2.damage

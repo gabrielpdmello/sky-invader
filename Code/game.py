@@ -13,29 +13,24 @@ class Game:
         pygame.init()
         self.window = pygame.display.set_mode(size=(WIN_WIDTH, WIN_HEIGHT))
 
-    def run(self, debug = False):
+    def run(self, debug=False):
         while True:
             score = Score(self.window)
             menu = Menu(self.window)
             menu_return = menu.run()
 
-            if menu_return == MENU_OPTION[0]: # play
+            if menu_return == MENU_OPTION[0]:  # play
                 level = Level(self.window, 'Level1')
                 if debug:
-                    player_score = level.run(debug = True)
-
+                    player_score = level.run(debug=True)
                 else:
                     player_score = level.run()
 
-                if player_score:
-                    score.save(player_score)
+                score.save(player_score)
 
             elif menu_return == MENU_OPTION[1]:  # score
                 score.show()
-                pass
 
-            elif menu_return == MENU_OPTION[2]: # quit
+            elif menu_return == MENU_OPTION[2]:  # quit
                 pygame.quit()
                 quit()
-            else:
-                pass

@@ -24,7 +24,7 @@ class Menu:
         while True:
             clock.tick(60)
             for ent in self.entity_list:
-                self.window.blit(source = ent.surf, dest = ent.rect)
+                self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move('x')
 
             self.menu_text(MENU_TITLE_FONT_SIZE, 'Sky', MENU_TITLE_FONT_COLOR, ((WIN_WIDTH / 2), 60))
@@ -35,7 +35,8 @@ class Menu:
                     self.menu_text(MENU_OPTION_FONT_SIZE, MENU_OPTION[i], MENU_OPTION_FONT_COLOR_SELECTED,
                                    ((WIN_WIDTH / 2), 240 + i * 60))
                 else:
-                    self.menu_text(MENU_OPTION_FONT_SIZE, MENU_OPTION[i], MENU_OPTION_FONT_COLOR, ((WIN_WIDTH / 2), 240 + i * 60))
+                    self.menu_text(MENU_OPTION_FONT_SIZE, MENU_OPTION[i], MENU_OPTION_FONT_COLOR,
+                                   ((WIN_WIDTH / 2), 240 + i * 60))
             pygame.display.flip()
 
             # Check for all events
@@ -45,7 +46,7 @@ class Menu:
                     quit()  # end pygame
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:
-                        if sel_menu_option < len(MENU_OPTION) -1:
+                        if sel_menu_option < len(MENU_OPTION) - 1:
                             sel_menu_option += 1
                         else:
                             sel_menu_option = 0

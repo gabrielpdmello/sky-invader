@@ -4,6 +4,7 @@ import random
 from Code.const import ENTITY_SPEED, WIN_HEIGHT, WIN_WIDTH
 from Code.entity import Entity
 
+
 class Prop(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)

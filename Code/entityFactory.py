@@ -26,16 +26,17 @@ class EntityFactory:
                 return list_bg
             case 'Level1Prop':
                 list_prop = []
-                for i in range (4):
-                    list_prop.append(Prop(f'level1/smoke{i + 1}', (random.randint(-80, (WIN_WIDTH - 80)), (-WIN_HEIGHT + i * 150))))
+                for i in range(4):
+                    list_prop.append(
+                        Prop(f'level1/smoke{i + 1}', (random.randint(-80, (WIN_WIDTH - 80)), (-WIN_HEIGHT + i * 150))))
                 return list_prop
             case 'Player':
                 return Player('Player/1B', ((WIN_WIDTH / 2 - 32), (WIN_HEIGHT - 100)))
             case 'HP':
-                return HP('HP', ((random.randint(0, WIN_WIDTH -80)), -400))
+                return HP('HP', ((random.randint(0, WIN_WIDTH - 80)), -400))
             case 'Enemy1':
-                return Enemy('Enemies/enemy1', ((random.randint(0, WIN_WIDTH -80)), -400))
+                return Enemy('Enemies/enemy1', ((random.randint(0, WIN_WIDTH - 80)), -400))
             case 'Enemy2':
-                return Enemy('Enemies/enemy2', ((random.randint(0, WIN_WIDTH -80)), -400))
+                return Enemy('Enemies/enemy2', ((random.randint(0, WIN_WIDTH - 80)), -400))
             case 'Enemy3':
-                return Enemy('Enemies/enemy3', ((random.randint(0, WIN_WIDTH -80)), -400), True)
+                return Enemy('Enemies/enemy3', ((random.randint(0, WIN_WIDTH - 80)), -400), True)

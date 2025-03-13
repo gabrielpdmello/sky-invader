@@ -1,11 +1,6 @@
 import pygame
 
-# C
-
-COLLISION_DELAY = 90 # 90 / 60fps = 1,5s
-
 # E
-
 ENTITY_DAMAGE = {
     'Menu/1': 0,
     'Menu/2': 0,
@@ -16,7 +11,7 @@ ENTITY_DAMAGE = {
     'level1/smoke2': 0,
     'level1/smoke3': 0,
     'level1/smoke4': 0,
-    'Player/1B': 1, # player must cause damage to enemy shot
+    'Player/1B': 1,  # player must cause damage to enemy shot
     'HP': 0,
     'Enemies/enemy1': 20,
     'Enemies/enemy2': 20,
@@ -98,21 +93,22 @@ ENTITY_SHOT_DELAY = {
 
 # F
 FPS = 60
+COLLISION_DELAY = 1.5 * FPS
 
 # H
-HP_COLOR = (0, 156, 0) # green
+HP_COLOR = (0, 156, 0)  # green
 HP_FONT_SIZE = 32
 
 # L
 
 LEVEL_FONT_SIZE = 24
-LEVEL_FONT_COLOR = (255, 255, 255) # white
+LEVEL_FONT_COLOR = (255, 255, 255)  # white
 
 # M
-MENU_TITLE_FONT_COLOR = (18, 206, 219) # light blue
+MENU_TITLE_FONT_COLOR = (18, 206, 219)  # light blue
 MENU_TITLE_FONT_SIZE = 100
-MENU_OPTION_FONT_COLOR = (255, 255, 255) # white
-MENU_OPTION_FONT_COLOR_SELECTED = (255, 255, 0) # yellow
+MENU_OPTION_FONT_COLOR = (255, 255, 255)  # white
+MENU_OPTION_FONT_COLOR_SELECTED = (255, 255, 0)  # yellow
 MENU_OPTION_FONT_SIZE = 45
 MENU_OPTION = (
     'PLAY',
@@ -120,18 +116,16 @@ MENU_OPTION = (
     'EXIT'
 )
 
-# S
-SPAWN_RATE = 1500
-
 # W
 WIN_WIDTH = 450
 WIN_HEIGHT = 600
 
 # S
 SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
-             'EnterName': (WIN_WIDTH / 2, 80),
+             'Score': (WIN_WIDTH / 2, 90),
              'Label': (WIN_WIDTH / 2, 90),
-             'Name': (WIN_WIDTH / 2, 110),
+             'EnterName': (WIN_WIDTH / 2, 120),
+             'Name': (WIN_WIDTH / 2, 150),
              'Back': ((WIN_WIDTH / 2), (WIN_HEIGHT - 30)),
              0: (WIN_WIDTH / 2, 110),
              1: (WIN_WIDTH / 2, 130),
@@ -145,6 +139,6 @@ SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
              9: (WIN_WIDTH / 2, 290),
              }
 
-SCORE_FONT_SIZE = 30
-SCORE_FONT_COLOR = (255, 255, 255) # white
-SCORE_BG_COLOR = (50, 50, 50) # dark grey
+SCORE_FONT_COLOR = (255, 255, 255)  # white
+SCORE_BG_COLOR = (50, 50, 50)  # dark grey
+SPAWN_RATE_DELAY = 1500
